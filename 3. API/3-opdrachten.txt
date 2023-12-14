@@ -1,0 +1,11 @@
+[Documentation]
+RequestsLibrary     https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#library-documentation-top
+JSONLibrary         https://robotframework-thailand.github.io/robotframework-jsonlibrary/JSONLibrary.html#Get%20Value%20From%20Json
+
+[Pre-conditie]
+Installeer met pip de volgende libraries:
+- pip install robotframework-requests
+- pip install robotframework-jsonlibrary
+
+[Opdracht 1]
+Schrijf API testen voor de twee scenario's

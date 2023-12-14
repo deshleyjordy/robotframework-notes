@@ -1,0 +1,25 @@
+[Documentatie]
+SeleniumLibrary     https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html
+Locators            https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#:~:text=//foo.-,Explicit%20locator%20strategy,-The%20explicit%20locator
+
+[Pre-conditie]
+- Start de scenario uit 'formulier.features.robot' om te kijken of het werkt
+
+[Opdracht 1]
+- Helaas pindakaas, de test faalt
+- Kun je achterhalen waarom de test faalt? Probeer de test te fixen
+- Tip: Maak gebruik van de documentatie --> SeleniumLibrary
+
+[Opdracht 2]
+- Start de scenario opnieuw, de test faalt opnieuw.
+- Kun je achterhalen waarom de test faalt? Probeer de test te fixen
+- Tip: Maak gebruik van de documentatie --> Locators
+
+[Opdracht 3]
+- Guess what? Yep.
+- Kun je achterhalen waarom de test faalt? Probeer de test te fixen
+
+[Opdracht 4]
+- De laatste stap is het valideren van de ingevoerde gegevens
+- De steps staan al gedefinieerd, maar zijn nog niet uitgewerkt in de helpers.
+- Probeer deze laatste stappen zelf uit te werken, zodat de testscenario volledig is.
