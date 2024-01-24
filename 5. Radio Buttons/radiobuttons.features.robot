@@ -13,6 +13,7 @@ Library          SeleniumLibrary    run_on_failure=None
 Resource         radiobuttons.setup.robot
 
 Suite Setup      SetupRadioButtons
+Suite Teardown   Close All Browsers
 
 *** Variables ***
 ${groupName}        likeit
