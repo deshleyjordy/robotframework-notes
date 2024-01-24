@@ -10,7 +10,6 @@ Documentation    The special keywords for radio buttons like 'Select Radio Butto
 ...              So this keyword actually never works? Unless executed with some JavaScript in Scenario 4.
 
 Library          SeleniumLibrary    run_on_failure=None
-Library    Dialogs
 Resource         radiobuttons.setup.robot
 
 Suite Setup      SetupRadioButtons
