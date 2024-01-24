@@ -6,6 +6,8 @@ Documentation    Cookie information
 ...              path:	    /
 ...              expires:   Thu, 25 Jan 2024 19:08:45 GMT
 ...              secure:    false
+...              //
+...              https://www.geeksforgeeks.org/software-testing-cookie-testing/
 
 Library          SeleniumLibrary    run_on_failure=None
 Resource         cookies.setup.robot
