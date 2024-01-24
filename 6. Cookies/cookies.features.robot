@@ -1,6 +1,11 @@
 *** Settings ***
-Documentation    Cookies
-...              //
+Documentation    Cookie information
+...              name:      session-username
+...              value:     standard_user
+...              domain:    www.saucedemo.com
+...              path:	    /
+...              expires:   Thu, 25 Jan 2024 19:08:45 GMT
+...              secure:    false
 
 Library          SeleniumLibrary    run_on_failure=None
 Resource         cookies.setup.robot
