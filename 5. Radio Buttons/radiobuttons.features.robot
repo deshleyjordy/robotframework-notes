@@ -1,5 +1,24 @@
-Op ... werken keywords als Select Radio Buttons etc... niet, omdat de gegevens worden geladen uit een <label> en dit is een overlay op de échte button. Waardoor RF niet in staat is om op de echte button te klikken
+*** Settings ***
+Documentation    The special keywords for radio buttons like 'Select Radio Button' doesn't work with data-ta-id's
+...              Here an example of 'normal' radio buttons to see how this works.
 
-http://test.rubywatir.com/radios.php
+Library          SeleniumLibrary    run_on_failure=None
+Resource         radiobuttons.setup.robot
 
-Voor nu even kijken of GIT nog werkt, later dit nog uitwerken!!
+Suite Setup      SetupRadioButtons
+
+*** Variables ***
+${groupName}    likeit
+
+*** Test Cases ***
+Scenario: De gebruiker maakt een keuze met een radio button via een id
+    Given The user clicks on the option 'Radio with id'
+    Then The option 'Radio with id' is selected
+
+
+*** Keywords ***
+The user clicks on the option 'Radio with id'
+    Select Radio Button    ${groupName}    radioId
+
+The option 'Radio with id' is selected
+    Radio Button Should Be Set To    ${groupName}    No
