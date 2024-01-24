@@ -93,3 +93,8 @@ Scenario: The user logs out of the system and the cookies get deleted correctly
     
     # Checks if cookie is deleted
     Run Keyword And Expect Error    Cookie with name 'session-username' not found.    Get Cookie    session-username
+
+Scenario: The user deletes a cookie while logged in and tries to continue browsing the website
+Scenario: The user adds multiple new cookies with valid log in information
+Scenario: The user adds multiple new cookies and uses the keyword 'Get cookies'
+Scenario: The user logs in with a valid account, then 'change' the cookie with an invalid account
