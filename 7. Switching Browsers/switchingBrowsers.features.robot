@@ -3,6 +3,10 @@ Documentation    Idee om de keyword "Switch Browsers" te testen, om via Chrome t
 ...              Zie URL onder variables waarbij dit gemakkelijk getest kan worden.
 ...              Ook interessant om eens te kijken naar de webdrivers en de webdrivermanager zoals beschrijven staat op de SeleniumLibrary Github:
 ...              https://github.com/robotframework/SeleniumLibrary#browser-drivers
+...              //
+...              https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Switch%20Browser
+...              //
+...              https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Open%20Browser
 
 Library          SeleniumLibrary    run_on_failure=None
 Resource         
