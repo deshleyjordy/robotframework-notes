@@ -1,44 +1,54 @@
 *** Settings ***
-Documentation    Idee om de keyword "Switch Browsers" te testen, om via Chrome te chatten met een Firefox browser EN wellicht Edge erbij?
-...              Zie URL onder variables waarbij dit gemakkelijk getest kan worden.
-...              Ook interessant om eens te kijken naar de webdrivers en de webdrivermanager zoals beschrijven staat op de SeleniumLibrary Github:
-...              https://github.com/robotframework/SeleniumLibrary#browser-drivers
-...              //
-...              https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Switch%20Browser
+Documentation    https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Switch%20Browser
 ...              //
 ...              https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Open%20Browser
 
 Library          SeleniumLibrary    run_on_failure=None
-Library          Dialogs
+Resource         switchingBrowsers.setup.robot
 
-Test Teardown   Close All Browsers
+Suite Setup      Setup Switching Browsers
+Suite Teardown   Close All Browsers
 
 *** Variables ***
-${url}        https://otr.to
+${url}                  https://otr.to
+
+${buttonSendMessage}    //*[@class="button is-primary"]
+${inputChatroom}        //*[@class="input"]
+${inputTextfield}       //*[@name="userInput"]
+${validateConnection}   //*[@class="messages"]
 
 *** Test Cases ***
-Scenario: Opens a browser in Chrome with an alias and a browser in Firefox with an alias
-    [Documentation]    Opens two browsers next to each other on a 24 inch monitor
-    # Opens first browser in chrome in incognito
-    Open Browser    about:blank    chrome    alias=browser1    options=add_argument("--incognito")
+Scenario: Two browsers will open in Chrome and Firefox and try to communicate with each other
+    # Navigate to url in first browser
+    Go To    ${url}
+    Wait Until Element Is Visible    ${inputChatroom}
+    
+    # Store url for the chatroom
+    ${urlChatroom} =  Get Value    ${inputChatroom}
 
-    # Set appropiate windows size and position
-    Set Window Size    950    1000
-    Set Window Position    0    0
+    # Switch to second browser and open the chatroom
+    Switch Browser    browser-2
+    Go To    ${urlChatroom}
+    Wait Until Element Is Visible    ${validateConnection}
+    Page Should Contain    Connected to Peer
 
-    # Navigate somewhere
-    Go To    https://www.w3.org/
+    # Switch back to first browser to validate that the chat has opened
+    Switch Browser    browser-1
+    Wait Until Element Is Visible    ${validateConnection}
+    Page Should Contain    Connected to Peer
 
-    # Opens second browser in Firefox in private window
-    Open Browser    about:blank    firefox    alias=browser2    options=add_argument("--private-window")
+    # First browser says something in chat
+    Wait Until Element Is Visible    ${inputTextfield}
+    Input Text    ${inputTextfield}    Hi there, I am the Chrome Browser. Who am I speaking to?
+    Click Button    ${buttonSendMessage}
 
-    # Set appropiate windows size and position next to the first one
-    Set Window Size    950    1000
-    Set Window Position    950    0
+    # Switch second browser and respond
+    Switch Browser    browser-2
+    Page Should Contain    Hi there, I am the Chrome Browser. Who am I speaking to?
+    Wait Until Element Is Visible    ${inputTextfield}
+    Input Text    ${inputTextfield}    Hey there, I am the Firefox Browser. Do you copy?
+    Click Button    ${buttonSendMessage}
 
-    # Navigate somewhere
-    Go To    http://www.telegraaf.nl
-
-    # Switch to previous browser and do something
-    Switch Browser    browser1
-    Click Element    //*[@id="main"]/div[2]/div/a
+    # Switch back to first browser and verify message
+    Switch Browser    browser-1
+    Page Should Contain    Hey there, I am the Firefox Browser. Do you copy?
