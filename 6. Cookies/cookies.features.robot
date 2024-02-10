@@ -150,6 +150,3 @@ Scenario: The user adds multiple new cookies and uses the keyword 'Get cookies'
     # Get cookies and log as a Robot Framework dictionary
     ${cookies} =  Get Cookies    as_dict=true
     Log    ${cookies}
-    
-
-Scenario: The user logs in with a valid account, then 'change' the cookie with an invalid account
