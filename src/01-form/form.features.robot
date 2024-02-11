@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource   formulier.steps.robot
+Resource   form.steps.robot
 
 *** Test Cases ***
 Scenario: De gebruiker vult het formulier in met persoonlijke gegevens en kiest voor verzenden

@@ -1,12 +1,12 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource   formulier.helpers.resource
+Resource   form.helpers.resource
 
 *** Variables ***
 # Testdata
 ${_value}          The Input Form
-${_firstName}      Teampje
-${_lastName}       Barbados Bridgetown
+${_firstName}      Guardians
+${_lastName}       of the Galaxy
 ${_age}            23
 ${_country}        Madagascar
 ${_notes}          This is a text for a note
