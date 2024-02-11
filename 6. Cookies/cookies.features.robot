@@ -137,7 +137,7 @@ Scenario: The user deletes a cookie while logged in and tries to continue browsi
 Scenario: The user adds multiple new cookies with valid log in information
     [Documentation]    This is not even possible. The 'new' cookie will get the same name of 'session-username',
     ...                meaning the 'old' cookie with the same name will automatically be deleted. It will overwrite.
-    Log    This is not possible, read documentation above.
+    No Operation
 
 Scenario: The user adds multiple new cookies and uses the keyword 'Get cookies'
     # Adds cookie with correct username
