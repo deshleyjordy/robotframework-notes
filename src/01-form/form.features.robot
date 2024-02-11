@@ -1,4 +1,8 @@
 *** Settings ***
+Documentation    User fills in a form using the SeleniumLibrary
+...              //
+...              $ pip install robotframework-seleniumlibrary
+
 Library    SeleniumLibrary
 Resource   form.steps.robot
 
