@@ -1,9 +1,13 @@
 *** Settings ***
-Library     SeleniumLibrary
-Resource    datadriven.setup.resource
+Documentation    Data-driven testing
+...              User logs in with multiple invalid data
+...              //
+...              $ pip install robotframework-seleniumlibrary
 
-# Opdracht 1: Test Setup of Suite Setup?
-Suite Setup  SetupDataDriven
+Library     SeleniumLibrary
+Resource    data-driven.setup.resource
+
+Suite Setup  Setup Data-driven
 Suite Teardown  Close All Browsers
 
 Test Template  Login with invalid credentials should fail

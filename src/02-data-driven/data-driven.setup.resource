@@ -6,6 +6,6 @@ ${browser}    chrome
 ${url}        https://www.saucedemo.com/
 
 *** Keywords ***
-SetupDataDriven
+Setup Data-driven
      Open Browser    ${url}    ${browser}    options=add_argument("--incognito")
      Maximize Browser Window
