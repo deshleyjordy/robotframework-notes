@@ -1,4 +1,12 @@
 *** Settings ***
+Documentation    API testing
+...              //
+...              $ pip install robotframework-requests
+...              $ pip install robotframework-jsonlibrary
+...              //
+...              https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#library-documentation-top
+...              https://robotframework-thailand.github.io/robotframework-jsonlibrary/JSONLibrary.html#Get%20Value%20From%20Json
+
 Library  SeleniumLibrary
 Library  RequestsLibrary
 Library  JSONLibrary
