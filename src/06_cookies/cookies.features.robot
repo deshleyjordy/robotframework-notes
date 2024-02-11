@@ -8,11 +8,13 @@ Documentation    Cookie information
 ...              secure:    false
 ...              //
 ...              https://www.geeksforgeeks.org/software-testing-cookie-testing/
+...              //
+...              $ pip install robotframework-seleniumlibrary
 
 Library          SeleniumLibrary    run_on_failure=None
 Resource         cookies.setup.robot
 
-Test Setup      SetupCookies
+Test Setup      Setup Cookies
 Test Teardown   Close All Browsers
 
 *** Variables ***

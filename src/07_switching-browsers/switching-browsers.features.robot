@@ -4,7 +4,7 @@ Documentation    https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html
 ...              https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Open%20Browser
 
 Library          SeleniumLibrary    run_on_failure=None
-Resource         switchingBrowsers.setup.robot
+Resource         switching-browsers.setup.robot
 
 Suite Setup      Setup Switching Browsers
 Suite Teardown   Close All Browsers

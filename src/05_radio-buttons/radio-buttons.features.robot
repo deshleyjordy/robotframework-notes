@@ -1,18 +1,20 @@
 *** Settings ***
 Documentation    The special keywords for radio buttons like 'Select Radio Button' doesn't work with data-ta-id's
 ...              Here an example of 'normal' radio buttons to see how this works.
-...              
+...              //
 ...              'Radio Button Should Be Set To' only takes a value as argument
-...              
+...              //
 ...              'Select Radio Button' takes a value or id as argument
-...              
+...              //
 ...              'Radio Button Should Not Be Selected' takes the group name as argument, but a functionality that uses radio buttons has the first option always selected.
 ...              So this keyword actually never works? Unless executed with some JavaScript in Scenario 4.
+...              //
+...              $ pip install robotframework-seleniumlibrary
 
 Library          SeleniumLibrary    run_on_failure=None
-Resource         radiobuttons.setup.robot
+Resource         radio-buttons.setup.robot
 
-Suite Setup      SetupRadioButtons
+Suite Setup      Setup RadioButtons
 Suite Teardown   Close All Browsers
 
 *** Variables ***

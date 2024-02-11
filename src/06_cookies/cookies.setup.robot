@@ -4,13 +4,13 @@ Library   SeleniumLibrary    run_on_failure=None
 *** Variables ***
 # Navigation
 ${browser}    chrome
-${url}        http://test.rubywatir.com/radios.php
+${url}        https://www.saucedemo.com/
 
 # Variables
-${validatie}    	Radio button test page
+${validatie}    id:login_button_container
 
 *** Keywords ***
-SetupRadioButtons
+Setup Cookies
      Open Browser    ${url}    ${browser}    options=add_argument("--incognito")
      Maximize Browser Window
-     Wait Until Page Contains    ${validatie}    timeout=10s
+     Wait Until Element Is Visible    ${validatie}    timeout=10s
