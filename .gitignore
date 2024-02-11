@@ -5,3 +5,4 @@ output.xml
 report.html
 .log
 playwright-log.txt
+test.test
