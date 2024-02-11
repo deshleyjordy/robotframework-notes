@@ -1,6 +1,10 @@
 *** Settings ***
-Library    Browser
+Documentation    Some tests using the Browser Library
+...              //
+...              $ pip install robotframework-browser
+...              $ rfbrowser init
 
+Library    Browser
 
 *** Test Cases ***
 Has Title
