@@ -4,9 +4,6 @@ Documentation    Creating customized keywords in Python to use in Robot Framewor
 
 Library    ../../lib/CustomLibrary.py
 
-*** Variables ***
-${test}
-
 *** Test Cases ***
 Scenario: Log a random email to the console
    ${randomEmail} =  Generate Random Emails    ${10}
