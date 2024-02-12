@@ -5,3 +5,5 @@ output.xml
 report.html
 .log
 playwright-log.txt
+__pycache__
+interactive_console_output.xml
