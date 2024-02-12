@@ -20,3 +20,14 @@ class CustomLibrary(object):
         return [self.get_random_name(length)
                 + '@'
                 + random.choice(domains)]
+    
+    # Creating an own Python function to generate a full name    
+    def generate_random_name(self):
+        first_names = ['John', 'Alice', 'Michael', 'Emma', 'David', 'Olivia']
+        last_names = ['Smith', 'Johnson', 'Brown', 'Lee', 'Garcia', 'Davis']
+
+        first_name = random.choice(first_names)
+        last_name = random.choice(last_names)
+
+        full_name = f"{first_name} {last_name}"
+        return full_name

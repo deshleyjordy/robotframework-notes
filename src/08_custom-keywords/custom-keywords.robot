@@ -8,6 +8,10 @@ Library    ../../lib/CustomLibrary.py
 ${test}
 
 *** Test Cases ***
-Scenario: Log a random email with the custom keyword
+Scenario: Log a random email to the console
    ${randomEmail} =  Generate Random Emails    ${10}
    Log To Console    ${randomEmail}
+
+Scenario: Log a random full name to the console
+    ${randomName} =  Generate Random Name
+    Log To Console    ${randomName}
