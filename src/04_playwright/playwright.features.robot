@@ -5,6 +5,7 @@ Documentation    Some tests using the Browser Library
 ...              $ rfbrowser init
 
 Library    Browser
+Library    OperatingSystem
 
 *** Test Cases ***
 Has Title
@@ -53,6 +54,37 @@ Scenario: The user adds an iPhone to the cart, logs in to the website and verifi
     # Login to the website and verify if order is correct
     Click    id=login-btn
     Get Text    id=1    contains    iPhone 12
+    
+    Type Text    id=firstNameInput    Tony
+    Type Text    id=lastNameInput    Stark
+    Type Text    id=addressLine1Input    Stark Tower New York 911
+    Type Text    id=provinceInput    New York
+    Type Text    id=postCodeInput    11001 XL
+
+    Click    id=checkout-shipping-continue
+
+    Get Text    id=confirmation-message    contains     successfully
+
+
+    ${downloadtest} =  Promise To Wait For Download    C:/Users/Deshley/Downloads/confirmation.pdf
+    Click    id=downloadpdf
+    
+
+    Sleep    7s
+
+
+    ${file_obj}=           Wait For    ${downloadtest}
+    Log    ${file_obj}
+    Log    ${file_obj}[saveAs]
+    Log    ${file_obj.suggestedFilename}
+    Log    "${file_obj.suggestedFilename}"
+    
+    File Should Exist      ${file_obj}[saveAs]
+
+    # Put quotes... check: https://stackoverflow.com/questions/68425725/error-a-name-is-not-defined-when-using-a-variable-in-expression
+    Should Be True         "${file_obj.suggestedFilename}"
+
+
 
 Scenario: Same test as above, but for the device iPhone X
     
