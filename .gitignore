@@ -7,3 +7,4 @@ report.html
 playwright-log.txt
 __pycache__
 interactive_console_output.xml
+browser

@@ -29,3 +29,19 @@ Playwright Test
     Get Attribute    "Get started"    href    ==    /docs/intro
     Click    "Get started"
     Get Url    matches    .*intro
+
+Scenario: Do something in device iPhone X modus
+    ${device} =    Get Device    iPhone X
+    
+    New Page    https://playwright.dev/
+
+Scenario: browsers
+    [Documentation]    https://www.browserstack.com/guide/cross-browser-testing-using-playwright
+    Open Browser    https://bstackdemo.com/    chromium    headless=false
+    Click    //*[@id="1"]//div[@class="shelf-item__buy-btn"]
+    Click    //*[@class="buy-btn"]
+    # How??
+    Type Text    //*[@id="username"]    fav_user
+    Type Secret    id=password    testingisfun99
+    Click    id=login-btn
+    Get Text    id=1    contains    iPhone 12
