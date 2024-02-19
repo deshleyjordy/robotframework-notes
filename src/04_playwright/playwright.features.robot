@@ -54,7 +54,33 @@ Scenario: The user adds an iPhone to the cart, logs in to the website and verifi
     Click    id=login-btn
     Get Text    id=1    contains    iPhone 12
 
-Scenario: Do something in device iPhone X modus
-    ${device} =    Get Device    iPhone X
+Scenario: Same test as above, but for the device iPhone X
     
-    New Page    https://playwright.dev/
+    # Setup device and open in 'New page'
+    ${device} =    Get Device    iPhone X
+    New Context    &{device}
+    New Page    https://bstackdemo.com/
+    Take Screenshot
+
+    # Add item to shopping cart and proceed order
+    Click    //*[@id="1"]//div[@class="shelf-item__buy-btn"]
+    Take Screenshot
+    Click    //*[@class="buy-btn"]
+    Take Screenshot
+
+    # Somehow the 'Type Text & 'Type Secret' does not work on this specific login page...
+    Click   //*[@id="username"]
+    Keyboard Key    press    ArrowDown
+    Keyboard Key    press    ArrowDown
+    Keyboard Key    press    ArrowDown
+    Keyboard Key    press    Enter
+    Take Screenshot
+
+    Click    //*[@id="password"]
+    Keyboard Key    press    Enter
+    Take Screenshot
+
+    # Login to the website and verify if order is correct
+    Click    id=login-btn
+    Get Text    id=1    contains    iPhone 12
+    Take Screenshot
