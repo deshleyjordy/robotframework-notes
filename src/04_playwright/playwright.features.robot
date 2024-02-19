@@ -30,18 +30,31 @@ Playwright Test
     Click    "Get started"
     Get Url    matches    .*intro
 
+Scenario: The user adds an iPhone to the cart, logs in to the website and verifies order
+    [Documentation]    https://www.browserstack.com/guide/cross-browser-testing-using-playwright
+    
+    # Headless on false to test different browsers (chromium, firefox and webkit)
+    Open Browser    https://bstackdemo.com/    chromium    headless=false
+
+    # Add item to shopping cart and proceed order
+    Click    //*[@id="1"]//div[@class="shelf-item__buy-btn"]
+    Click    //*[@class="buy-btn"]
+
+    # Somehow the 'Type Text & 'Type Secret' does not work on this specific login page...
+    Click   //*[@id="username"]
+    Keyboard Key    press    ArrowDown
+    Keyboard Key    press    ArrowDown
+    Keyboard Key    press    ArrowDown
+    Keyboard Key    press    Enter
+
+    Click    //*[@id="password"]
+    Keyboard Key    press    Enter
+
+    # Login to the website and verify if order is correct
+    Click    id=login-btn
+    Get Text    id=1    contains    iPhone 12
+
 Scenario: Do something in device iPhone X modus
     ${device} =    Get Device    iPhone X
     
     New Page    https://playwright.dev/
-
-Scenario: browsers
-    [Documentation]    https://www.browserstack.com/guide/cross-browser-testing-using-playwright
-    Open Browser    https://bstackdemo.com/    chromium    headless=false
-    Click    //*[@id="1"]//div[@class="shelf-item__buy-btn"]
-    Click    //*[@class="buy-btn"]
-    # How??
-    Type Text    //*[@id="username"]    fav_user
-    Type Secret    id=password    testingisfun99
-    Click    id=login-btn
-    Get Text    id=1    contains    iPhone 12
