@@ -6,6 +6,7 @@ Documentation    Some tests using the Browser Library
 
 Library    Browser
 Library    OperatingSystem
+Library    Dialogs
 
 *** Test Cases ***
 Scenario: The user adds an iPhone to the cart, logs in to the website and verifies order
@@ -51,7 +52,7 @@ Scenario: The user adds an iPhone to the cart, logs in to the website and verifi
     
     # Vefiry if file is downloaded by browser
     ${file_obj}=           Wait For    ${downloadtest}
-
+    
     # Just for example purposes
     Log    ${file_obj}
     Log    ${file_obj}[saveAs]
@@ -64,7 +65,6 @@ Scenario: The user adds an iPhone to the cart, logs in to the website and verifi
     Should Be True         "${file_obj.suggestedFilename}"
 
 Scenario: User tests with a iPhone X as device
-    
     # Setup device and open in 'New page'
     ${device} =    Get Device    iPhone X
     New Context    &{device}
@@ -93,3 +93,28 @@ Scenario: User tests with a iPhone X as device
     Click    id=login-btn
     Get Text    id=1    contains    iPhone 12
     Take Screenshot
+
+Scenario: Check location offer
+    # Headless on false to test different browsers (chromium, firefox and webkit)
+    Open Browser    https://bstackdemo.com/    chromium    headless=false
+
+    # Mumbai has offers
+    Set Geolocation    19.076090    72.877426
+
+    Click    id=signin
+
+    # Somehow the 'Type Text & 'Type Secret' does not work on this specific login page...
+    Click   //*[@id="username"]
+    Keyboard Key    press    Enter
+
+    Click    //*[@id="password"]
+    Keyboard Key    press    Enter
+
+    # Login to the website and verify if order is correct
+    Click    id=login-btn
+    
+    Grant Permissions    geolocation
+
+    Click    id=offers
+
+    Execute Manual Step    hello
