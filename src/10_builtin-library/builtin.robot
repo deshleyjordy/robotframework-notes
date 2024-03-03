@@ -19,3 +19,7 @@ Scernario: Evaluating expressions
     Set Test Variable    ${result}    3.14
     ${status} =  Evaluate    0 < ${result} < 10
     Log To Console    ${status}
+
+Scenario: No Operation
+    [Documentation]    Does absolutely nothing
+    No Operation
