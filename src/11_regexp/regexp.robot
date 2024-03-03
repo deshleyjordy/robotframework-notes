@@ -33,6 +33,15 @@ Scenario: A user validates a name and number
     # Validates that this string contains Foo or Bar
     Should Match Regexp    Bar: 43    (Foo|Bar): (\\d+)
 
+    # Validates that output CONTAINS six numbers
+    Should Match Regexp    12345678    \\d{6}
+    Should Not Match Regexp    12345    \\d{6}
+
+    # Validates that output is six numbers and nothing less or more
+    Should Match Regexp    123456    ^\\d{6}$
+    Should Not Match Regexp    12345    ^\\d{6}$
+    Should Not Match Regexp    1234567    ^\\d{6}$
+
 Scenario: A user validates the start or end of strings
     # In this case the pattern  matches the provided string
     Should Match Regexp    Hello, world!    ello
