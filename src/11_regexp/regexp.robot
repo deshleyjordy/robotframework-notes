@@ -23,6 +23,9 @@ Scenario: A user validates an email
     # Check if case sensivity
     Should Not Match Regexp    ${email}    user@EXAMPLE.com
 
+    # Validate that the email follows a common pattern
+    Should Match Regexp    ${email}    ^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$
+
 Scenario: A user validates a name and number
     # Declare variable
     ${full_name}    Set Variable    John Doe
