@@ -4,11 +4,15 @@ Documentation    Testing some regexp
 
 *** Test Cases ***
 Scenario: A user validates a string
+    [Documentation]    https://www.w3schools.com/python/python_regex.asp
     # Declare variable
     ${my_string} =    Set Variable    Hello, world!
 
     # Validate that the string starts with "Hello, " and ends with an exclamation mark
     Should Match Regexp    ${my_string}    Hello, .*!
+
+    # Should start with 'The' and end with 'Spain' string
+    Should Match Regexp    The rain in Spain    ^The.*Spain$
 
 Scenario: A user validates an email
     # Declare variable
